@@ -1,0 +1,51 @@
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; min-height: 100%; font-family: Arial, Helvetica, sans-serif; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.home { min-height: 100vh; display: grid; place-content: center; gap: 16px; padding: 24px; text-align: center; background: #f5f5f5; }
+.home h1 { margin: 0; }
+.pb-link { background: #0874b9; color: white; padding: 14px 22px; border-radius: 12px; text-decoration: none; font-weight: 700; }
+.chat-page { height: 100vh; display: flex; overflow: hidden; background: #062131; }
+.chat-sidebar { width: 280px; flex-shrink: 0; padding: 18px; overflow-y: auto; background: #071826; color: white; border-right: 1px solid #ffffff1a; }
+.sidebar-header, .sidebar-section-row { display: flex; align-items: center; justify-content: space-between; }
+.sidebar-header strong { font-size: 22px; }
+.sidebar-header button, .sidebar-section-row button, .inline-form button { border: 0; border-radius: 8px; padding: 7px 10px; color: white; background: #0874b9; }
+.sidebar-section { margin-top: 30px; opacity: .7; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
+.sidebar-section-row { margin: 26px 0 8px; font-size: 12px; text-transform: uppercase; opacity: .8; }
+.sidebar-item { width: 100%; border: 0; background: transparent; color: #ddd; padding: 11px; border-radius: 8px; text-align: left; margin-bottom: 4px; }
+.sidebar-item:hover, .sidebar-item.selected { background: #10354a; color: white; }
+.inline-form { margin: 14px 0; padding: 12px; display: grid; gap: 10px; border-radius: 10px; background: #10354a; }
+.inline-form label { display: grid; gap: 5px; font-size: 12px; }
+.inline-form input { width: 100%; min-width: 0; padding: 8px; border: 0; border-radius: 6px; }
+.inline-form div { display: flex; gap: 7px; }
+.inline-form .secondary { background: #526776; }
+.demo-user { margin-top: 30px; font-size: 13px; color: #aaa; }
+.chat-panel { display: flex; flex-direction: column; flex: 1; min-width: 0; height: 100vh; background: #062131; }
+.chat-header { min-height: 62px; display: flex; align-items: center; gap: 10px; padding: 10px 18px; background: #0874b9; color: white; }
+.chat-header small { display: block; margin-top: 2px; opacity: .75; }
+.avatar { width: 36px; height: 36px; display: grid; place-content: center; border: 2px solid white; border-radius: 50%; }
+.menu-button { display: none; border: 0; background: transparent; color: white; font-size: 22px; }
+.connection { margin-left: auto; font-size: 12px; }
+.online { color: #d4ffd9; } .offline { color: #ffd0d0; }
+.orange-line { height: 8px; background: #f7a81b; }
+.notice { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 16px; background: #fff2cc; color: #5b4300; }
+.notice button { border: 0; background: transparent; font-size: 20px; }
+.messages { flex: 1; overflow-y: auto; padding: 28px 22px; }
+.message-row { display: flex; justify-content: flex-start; margin-bottom: 18px; }
+.message-row.mine { justify-content: flex-end; }
+.bubble { position: relative; max-width: min(70%, 540px); min-width: 120px; border-radius: 18px; padding: 10px 14px 20px; overflow-wrap: anywhere; }
+.bubble-other { background: #efefef; color: #111; }
+.bubble-mine { background: #0874b9; color: white; }
+.sender { display: block; margin-bottom: 3px; color: #d44b55; font-size: 12px; font-weight: 700; }
+.bubble time { position: absolute; bottom: 5px; right: 11px; font-size: 9px; opacity: .65; }
+.empty-chat { margin: 20px auto; color: #9aabb5; text-align: center; }
+.message-form { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: white; }
+.message-form input { flex: 1; min-width: 0; height: 38px; border: 0; outline: 0; border-radius: 999px; padding: 0 18px; background: #dedede; }
+.message-form button { width: 48px; height: 38px; border: 0; border-radius: 999px; color: white; background: #0874b9; font-size: 20px; }
+.message-form button:disabled { opacity: .4; cursor: default; }
+@media (max-width: 760px) {
+  .chat-sidebar { position: absolute; z-index: 20; inset: 0 auto 0 0; transform: translateX(-100%); transition: transform .2s; box-shadow: 8px 0 24px #0008; }
+  .chat-sidebar.open { transform: translateX(0); }
+  .menu-button { display: inline-block; }
+  .bubble { max-width: 82%; }
+}
